@@ -1,0 +1,21 @@
+body,
+html {
+	height: 100% !important;
+	width: 100%;
+}
+.header__container {
+	// margin-top: -80px;
+	height: 100px;
+	width: 100%;
+	background: white;
+	opacity: 0.2;
+	box-shadow: 0 0 10px 0 gray;
+	position: fixed;
+	z-index: 1000;
+	@include transition(opacity 0.5s);
+
+	&:hover {
+		opacity: 0.7;
+	}
+
+}

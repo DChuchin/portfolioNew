@@ -11,7 +11,7 @@ html
             block title
 
         meta(name='viewport' content='width=device-width')
-        link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,600,700&subset=latin,cyrillic' media='screen, projection, print')
+        //- link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,600,700&subset=latin,cyrillic' media='screen, projection, print')
         link(rel='stylesheet' type='text/css' href='css/main.css' media='screen, projection, print')
         script(src='/js/_vendors/modernizr-2.6.2-respond-1.1.0.min.js')
 
@@ -21,12 +21,11 @@ html
         <![endif]-->
 
         .wrapper
-            .maincontent
-                include _common/_header
+            include _common/_header
 
-                block content
+            block content
 
-        include _common/_footer
+            include _common/_footer
 
         script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
         script.

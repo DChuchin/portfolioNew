@@ -1,0 +1,22 @@
+{
+  "name": "loft-template",
+  "description": "template for good works",
+  "main": "gulpfile.js",
+  "authors": [
+    "Vladimir Sabantsev"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/DChuchin/portfolioNew",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-mousewheel": "~3.1.13",
+    "jquery": "~2.2.0"
+  }
+}

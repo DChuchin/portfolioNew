@@ -1,0 +1,302 @@
+.wrapper {
+	height: 100% !important;
+	width: 100%;
+}
+.content {
+	height: 100%;
+	width: 100%;
+}
+.container 	{
+	position: relative;
+	width: 100%;
+	height:100%;
+	// overflow: hidden;
+	box-sizing: border-box;
+}
+.sections {
+	box-sizing: border-box;
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	@include transition(top 1s, ease-out);
+
+	&__left {
+		left: 0;
+		top: 0;
+	}
+
+	&__right {
+		right: 0;
+		top: -300%;
+	}
+}
+
+
+.section {
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+
+	.title {
+		opacity: 1;
+		@include transition(opacity 0.1s);
+	}
+
+	// .section__info {
+	// 	display: block;
+	// 	opacity: 0;
+	// 	color: white;
+	// 	font-size: 20px;
+	// 	line-height: 23px;
+	// 	@include transition(opacity 0.1s);
+	// }
+
+	&:before {
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 100%;
+		background: rgb(80, 120, 130);
+		opacity: 0;
+		@include transition(opacity 0.5s);
+	}
+
+	// &:hover {
+	// 	&:before {
+	// 		opacity: 0.8;
+
+	// 	}
+		
+		
+	// 	.title {
+	// 		opacity: 0;
+	// 	}	
+	// 	.section__info {
+	// 		opacity: 1;
+	// 	}
+	// }
+}
+.sections {
+	&__left{
+		&_1{
+			background-image :url('../img/photo.jpg');
+			background-position: center;
+			background-size: cover;
+		}
+		&_2{
+			background: #3E4543;
+		}
+		&_3{
+			background:#14FF4D;
+		}
+		&_4{
+			background:silver;
+		}
+	}
+
+	&__right{
+		&_1{
+			background:#3E4543;
+			
+		}
+		&_2{
+			background:#02B3E8;
+		}
+		&_3{
+			background:#2D00FF;
+		}
+		&_4{
+			background:#D405FF;
+		}
+	}
+}
+.main-title {
+	position: absolute;
+	left: -9999px;
+}
+
+.title__wrap {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    color: mix(black, white, 5%);
+    
+    text-align: left;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.title {
+	font-size: 3rem;
+}
+
+.info__wrap {
+	// @include absolute-center;
+	// width: 400px;
+	// height: 100px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    color: mix(black, white, 5%);
+    font-size: 1.5rem;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.skills__wrap {
+	position: absolute;
+	display: inline-flex;
+	flex-wrap: wrap;
+    top: 50%;
+    left: 50%;
+    margin-top: 100px;
+    color: mix(black, white, 5%);
+    font-size: 2rem;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 80%;
+
+    :before {
+    	display: block;
+    	margin: 0 auto;
+    	content: '';
+    	width: 20px;
+    	height: 20px;
+    	background:red;
+    }
+}
+.skill {
+	display: inline-block;
+	width: 25%;
+}
+
+// .section__info {
+// 	@include absolute-center;
+// 	height: 40%;
+// 	width: 40%;
+// 	display: none;
+// }
+
+
+.sections__right_3 {
+	display: flex;
+
+}
+
+/*--------------------------- works ---------------------------------------*/
+
+.works__list {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.work__item {
+	display: flex;
+	position: relative;
+	list-style: none;
+	width: 50%;
+	height: 50%;
+	
+}
+
+.work__link {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	align-content:center;
+	text-align: center;
+	vertical-align: middle;
+
+	text-decoration: none;
+
+	&:focus {
+		outline: 0 none;
+	}
+
+	&:before {
+		content: '';
+		height: 100%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	&:hover {
+
+		.work__title {
+			opacity: 0;
+		}
+		
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background:gray;
+			opacity: 0.5;
+			top: 0;
+			left: 0;
+		}
+
+		.work__info {
+			opacity: 1;
+		}
+	}
+}
+
+.work__info {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    color: mix(black, white, 5%);
+    font-size: 1em;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 70%;
+	opacity: 0;
+
+}
+
+
+
+
+
+.arrow {
+	position: absolute;
+	left: 50%;
+	bottom: 30px;
+	margin-left: -17px;	
+	@include border-radius(50%);
+	width: 30px;
+	height: 30px;
+	border: 2px solid white;
+	background: rgba(255, 255, 255, 0.6);
+	@include transition(background 0.5s);
+
+	&:after {
+		position: absolute;
+		content:'';
+		@include absolute-center;
+		margin-top: 6px;
+		width: 8px;
+		height: 8px;
+		@include transform(rotate(45deg));
+		box-shadow: 3px 3px 0 0 white;
+		@include transition(box-shadow 0.5s)
+
+	} 
+	
+	&:hover {
+		background: white;
+
+		&:after {
+			box-shadow: 3px 3px 0 0 #A5F3FF; 
+		}
+	}
+}
+
