@@ -12,6 +12,10 @@
 
 @import "_misc/adjustment";
 
+$skills-map:  sprite-map('icons/*.png', $spacing: 70px);
+
+
+
 @import "_common/header";
 
 @import "_common/content";

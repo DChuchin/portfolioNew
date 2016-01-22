@@ -2,15 +2,11 @@
 	height: 100% !important;
 	width: 100%;
 }
-.content {
-	height: 100%;
-	width: 100%;
-}
 .container 	{
 	position: relative;
 	width: 100%;
-	height:100%;
-	// overflow: hidden;
+	height: calc(100% - 70px);
+	overflow: hidden;
 	box-sizing: border-box;
 }
 .sections {
@@ -18,6 +14,7 @@
 	position: absolute;
 	width: 50%;
 	height: 100%;
+
 	@include transition(top 1s, ease-out);
 
 	&__left {
@@ -35,7 +32,7 @@
 .section {
 	position: relative;
 	height: 100%;
-	overflow: hidden;
+	z-index: -1;
 
 	.title {
 		opacity: 1;
@@ -80,17 +77,18 @@
 	&__left{
 		&_1{
 			background-image :url('../img/photo.jpg');
-			background-position: center;
+			background-position: top center;
 			background-size: cover;
 		}
 		&_2{
-			background: #3E4543;
+			
 		}
 		&_3{
-			background:#14FF4D;
+			background: url('../img/workSpace.jpg');
+			background-size: cover;
 		}
 		&_4{
-			background:silver;
+			background: url('../img/address.jpg');
 		}
 	}
 
@@ -100,13 +98,13 @@
 			
 		}
 		&_2{
-			background:#02B3E8;
+			background: url('../img/skills.jpg') left;
 		}
 		&_3{
-			background:#2D00FF;
+			background:#3E4543;
 		}
 		&_4{
-			background:#D405FF;
+			background: #EBEAE9;
 		}
 	}
 }
@@ -127,7 +125,23 @@
 }
 
 .title {
+	cursor: default;
 	font-size: 3rem;
+
+	// &:after {
+	// 	content: '';
+	// 	display: block;
+	// 	width: 10%;
+	// 	border-top: 3px solid white;
+	// 	@include transition(width 0.5s);
+	// }
+
+	// &:hover {
+	// 	&:after {
+	// 		width: 100%;
+	// 	}
+
+	// }
 }
 
 .info__wrap {
@@ -144,33 +158,58 @@
     width: 80%;
 }
 
+
+
 .skills__wrap {
 	position: absolute;
 	display: inline-flex;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
     top: 50%;
     left: 50%;
-    margin-top: 100px;
-    color: mix(black, white, 5%);
-    font-size: 2rem;
+    color:#3E4543;;
+    font-size: 1.5rem;
     text-align: center;
     transform: translate(-50%, -50%);
     width: 90%;
-    height: 80%;
+    height: 90%;
 
-    :before {
-    	display: block;
-    	margin: 0 auto;
-    	content: '';
-    	width: 20px;
-    	height: 20px;
-    	background:red;
-    }
+    // :before {
+    // 	display: block;
+    // 	margin: 0 auto;
+    // 	content: '';
+    // 	width: 20px;
+    // 	height: 20px;
+    // 	background:red;
+    // }
 }
-.skill {
-	display: inline-block;
-	width: 25%;
+.skill__wrap {
+	// display: inline-block;
+	width: 150px;
+	position: relative;
+	vertical-align: bottom;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center; 
 }
+
+$items: Html, CSS, JavaScript, jQuery, Jade, Sass, Compass, Bower, npm, Gulp, Git, Photoshop;
+
+@each $item in $items {
+		.skill__wrap_#{$item} {
+
+				&:before {
+					@include get-sprite($skills-map, $item);
+					content: '';
+					// @include absolute-center;
+				}
+		}
+}
+
+
+
 
 // .section__info {
 // 	@include absolute-center;
@@ -201,6 +240,11 @@
 	width: 50%;
 	height: 50%;
 	
+}
+
+.work__item_portfolio {
+	background:url('../img/portfolio.jpg') center no-repeat;
+	background-size: cover; 
 }
 
 .work__link {
@@ -264,12 +308,30 @@
 
 
 
+.cross {
+  background: red;
+  height: 100px;
+  position: relative;
+  width: 20px;
+  opacity: 0.1;
+}
+.cross:after {
+  background: red;
+  opacity: 1;
+  content: "";
+  height: 20px;
+  left: -40px;
+  position: absolute;
+  top: 40px;
+  width: 100px;
+}
+
+/*-------------------------------- стрелки -------------------------*/
 
 
 .arrow {
 	position: absolute;
 	left: 50%;
-	bottom: 30px;
 	margin-left: -17px;	
 	@include border-radius(50%);
 	width: 30px;
@@ -278,15 +340,35 @@
 	background: rgba(255, 255, 255, 0.6);
 	@include transition(background 0.5s);
 
+	&.arrow_down {
+		bottom: 30px;
+
+		&:after {
+			@include transform(rotate(45deg));
+			box-shadow: 3px 3px 0 0 white;
+			margin-top: 6px;
+		}
+	}
+
+	&.arrow_up {
+		display: none;
+		top: 30px;
+		
+		&:after {
+			@include transform(rotate(225deg));
+			box-shadow: 3px 3px 0 0 white;
+			margin-bottom: 6px;
+		}
+
+	}
+	
 	&:after {
 		position: absolute;
 		content:'';
 		@include absolute-center;
-		margin-top: 6px;
+		
 		width: 8px;
 		height: 8px;
-		@include transform(rotate(45deg));
-		box-shadow: 3px 3px 0 0 white;
 		@include transition(box-shadow 0.5s)
 
 	} 

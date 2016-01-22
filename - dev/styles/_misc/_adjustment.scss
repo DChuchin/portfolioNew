@@ -1,16 +1,37 @@
 /* --------- adjustment --------- */
 
+
+
+$headerheight: 70px;
+$main-gray:#3E4543;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $container-width: 1105px;
 $footer-height: 222px;
 $body-font: 'Open Sans', sans-serif;
 
 html {
 	width:100%;
+	height: 100%;
 	font-size: 100.01%;
+	color: $main-gray;
 }
 
 body {
-	font: 16px/1.41 $body-font;
+	font-family:$body-font;
     -webkit-font-smoothing: antialiased;
 	width:100%;
 	height:100% !important;
@@ -40,10 +61,10 @@ body {
 	}
 }
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+// table {
+// 	border-collapse: collapse;
+// 	border-spacing: 0;
+// }
 
 ul {
 	padding: 0;
@@ -61,12 +82,8 @@ p {
 	margin: 0;
 }
 
-footer {
-	position: relative;
-	min-width: $container-width + 30;
-	height: $footer-height;
-}
 
-.maincontent {
-	margin-bottom: 29px;
-}
+
+// .maincontent {
+// 	margin-bottom: 29px;
+// }
