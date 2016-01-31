@@ -25,6 +25,22 @@ var scrollingScreen = (function() {
 				_isHidden();
 			});
 
+			$('.work__item').on('mouseenter', _hoverColor);
+			$('.work__item').on('mouseleave', function() {
+				console.log('out');
+													$( this ).find('.work__link').css('background-color', 'transparent');
+												});
+
+			function _hoverColor() {
+				
+				var 
+					red = Math.round(Math.random() * 200),
+					green = Math.round(Math.random() * 200),
+					blue = Math.round(Math.random() * 200),
+					color = 'rgb(' + red + ', ' + green + ', ' + blue + ')';
+				$( this ).find('.work__link').css('background-color', color);
+			}
+
 			function _isHidden () {
 					if (screen == 3) {
 							arrowDown.fadeOut();
@@ -41,8 +57,8 @@ var scrollingScreen = (function() {
 			
 
 			function _scrolling () {
-				positionLeft = (-screen * 100) + '%';
-				positionRight = (screen*100) - 300 + '%';
+				positionRight = (-screen * 100) + '%';
+				positionLeft = (screen*100) - 300 + '%';
 				$sectionsLeft.css('top', positionLeft);
 				$sectionsRight.css('top', positionRight);
 			}
@@ -51,8 +67,8 @@ var scrollingScreen = (function() {
 			 function _scroll(event) {
 			 	var positionLeft,
 					positionRight;
-				
-				if (scroll) {
+				if(window.matchMedia('(min-width: 960px)').matches) {
+					if (scroll) {
 					
 					if (event.deltaY > 0 && screen > 0) {
 						
@@ -73,6 +89,8 @@ var scrollingScreen = (function() {
 					_scrolling();
 					
 				}
+				}
+				
 			 }
 			 	$('.sections').on('transitionend', function() {
 				scroll = true;

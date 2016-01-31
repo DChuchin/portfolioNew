@@ -1,57 +1,76 @@
 .container
 	.sections.sections__left
 		.section.sections__left_1
-			h1.main-title
-				| Сайт Дмитрия Чучина
+			.title__wrap
+				h2.title
+					| Контакты
+			.contacts-info__container
 
 			
-				//- .section__img
-			//- img(class="section__img" src="img/photo.jpg")
 		.section.sections__left_2
-
-			.skills__wrap
-				-var skills = ['Html','CSS','JavaScript','jQuery','Jade','Sass','Compass','Bower','npm','Gulp','Git','Photoshop']
-				each skill in skills
-					div(class='skill__wrap skill__wrap_' + skill)
-						div(class="skill skill_" + skill)= skill
+			.title__wrap
+				h2.title
+					| Мои Работы
+			
 
 
 		.section.sections__left_3
 			.title__wrap
 				h2.title
-					| Мои Работы
+					| Ключевые навыки
+				
+			
+
+
+			
 		.section.sections__left_4
-			.title__wrap
-				h2.title
-					| Контакты
+			.info__wrap
+				.section__info.wellcome
+					|  Добро пожаловать на мой сайт.<br/> Меня зовут Дмитрий и я занимаюсь frontend разработкой
+			
+
+			
 	.sections.sections__right
 		.section.sections__right_4
-			.contacts__container
-				form.contacts__form
-					input(class="contacts__name" type="text")
-					input(class="contacts__email" type="email")
-					input(class="contacts__text" type="textarea")
-					input(class="contacts__button" type="submit")
+			h1.main-title
+				| Сайт Дмитрия Чучина
+		.info__wellcome.tip
+			|  Добро пожаловать на мой сайт.<br/> Меня зовут Дмитрий и я занимаюсь frontend разработкой
+			
+		
 			
 		.section.sections__right_3
+			.skills__wrap
+				-var skills = ['Html','CSS','JavaScript','jQuery','Jade','Sass','Compass','Bower','npm','Gulp','Git','Photoshop']
+				each skill in skills
+					div(class='skill__wrap skill__wrap_' + skill)
+						div(class="skill skill_" + skill)= skill
+						
+		.section.sections__right_2
 			ul.works__list
 				-var works = ['cooltech','portfolio','watermark','']
 				each work in works
 					li(class='work__item work__item_'+ work)
-						a(href="#" class='work__link work__link_' + work)
-							span.work__title= work
-							.work__info
+						a(href=work + ".html" class='work__link work__link_' + work)
+							span.work__info
 								|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur beatae at debitis eaque accusamus ratione tempore rem quis atque.
-						
-		.section.sections__right_2
-			.title__wrap
-				h2.title
-					| Ключевые навыки			
+							
 		.section.sections__right_1
-			.info__wrap
-				.section__info
-					|  Добро пожаловать на мой сайт.<br/> Меня зовут Дмитрий и я занимаюсь frontend разработкой
+			.contacts__container
+				.contacts__title
+					| Есть интересный проект? Напишите мне!
+				form.contacts__form
+					label.contacts__label_name
+						input(class="contacts__input_name contacts__input" type="text" placeholder="Как Вас зовут?")
+						
+					input(class="ccontacts__input_email contacts__input" type="email" placeholder="Ваш email?")
+					textarea(class="contacts__input_text contacts__input"  rows="10" placeholder="Пару слов о пректе")
+					button(class="contacts__input_button contacts__btn" type="submit")
+							| Отправить	
+			
+			//- img(src="../img/photo.jpg" class="main-img")
+			
 
 	.arrow.arrow_up
 	.arrow.arrow_down
-	.cross
+	//- .cross

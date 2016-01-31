@@ -1,13 +1,27 @@
 
-.header__container {
-	// margin-top: -80px;
-	height: $headerheight;
+.header {
 	width: 100%;
 	background: #FFFFFF;
-	// opacity: 0.2;
 	box-shadow: 0 0 5px 0 black !important;
-	z-index: 1;
 	top: 0;
+	height: $headerheight;
+	position: relative;
+	z-index: 1;
+
+}
+
+.header__container {
+	// margin-top: -80px;
+	display: flex;
+	justify-content: space-between;
+	height: 90%;
+	width: calc(100% - 40px);
+	margin: 0 auto;
+	
+	
+	// opacity: 0.2;
+
+	
 	@include transition(opacity 0.5s);
 
 	// &:hover {
@@ -16,25 +30,95 @@
 
 }
 
-.name__container {
+.header__logo,
+.language__container {
 	height: 100%;
 	display: flex;
+	text-decoration: none;
+	color: $main-gray;
+
+	&:hover {
+		.profession:before {
+			width: calc(100% + 20px);
+
+		}
+	}	
+}
+
+.language__container {
+	align-self: flex-end;
 }
 
 .name {
 	//display: block;
-	margin-left: 20px;
 	align-self: center;
 }
 .profession {
+	position: relative;
 	align-self: center;
-	margin-left: 10px;
+	margin-left: 20px;
+
 	&:before {
+		position: absolute;
+		width: 0;
 		content:'';
+		left: -10px;
 		height: 20px;
 		border: 1px solid;
 		display: inline;
 		align-self: center;
 		margin-right: 10px;
+
+		@include transition(width, 0.7s);
+	}		
+
+}
+
+.en {
+	position: relative;
+	align-self: center;
+	cursor: pointer;
+
+	&:after {
+		position: absolute;
+		width: 0;
+		content:'';
+		right: -22px;
+		height: 20px;
+		border: 1px solid;
+		display: inline;
+		align-self: center;
+		margin-right: 10px;
+		background:$main-gray;
+
+		@include transition(width, 0.5s);
+	}
+
+	&:hover:after {
+		width: calc(100% + 22px);
+	}		
+}
+.ru {
+	position: relative;
+	align-self: center;
+	margin-left: 20px;
+	cursor: pointer;
+
+	&:before {
+		position: absolute;
+		width: 0;
+		content:'';
+		left: -10px;
+		height: 20px;
+		border: 1px solid;
+		display: inline;
+		align-self: center;
+		margin-right: 10px;
+		background:$main-gray;
+
+		@include transition(width, 0.5s);
+	}		
+	&:hover:before {
+		width: calc(100% + 20px);
 	}
 }
